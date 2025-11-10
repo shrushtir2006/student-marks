@@ -1,23 +1,23 @@
-# Program to calculate average marks and grade
+import sys
 
-m1 = float(input("Enter marks of subject 1: "))
-m2 = float(input("Enter marks of subject 2: "))
-m3 = float(input("Enter marks of subject 3: "))
-m4 = float(input("Enter marks of subject 4: "))
-m5 = float(input("Enter marks of subject 5: "))
+if len(sys.argv) != 6:
+    print("Please provide marks of 5 subjects as command line arguments.")
+    sys.exit()
 
-average = (m1 + m2 + m3 + m4 + m5) / 5
+marks = [int(arg) for arg in sys.argv[1:6]]
 
-if average >= 85:
+average = sum(marks) / len(marks)
+
+if average >= 90:
     grade = "A"
-elif average >= 70:
+elif average >= 75:
     grade = "B"
-elif average >= 55:
+elif average >= 60:
     grade = "C"
 elif average >= 40:
     grade = "D"
 else:
     grade = "Fail"
 
-print("Average Marks:", average)
-print("Grade:", grade)
+print(f"Average Marks: {average:.2f}")
+print(f"Grade: {grade}")
